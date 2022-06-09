@@ -2,37 +2,111 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+nav {
+  padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+  padding: 20px 0;
+  min-height: calc(100vh - 70px - 64px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.card {
   display: flex;
   flex-direction: column;
+}
+
+.card .card-content {
+  flex-grow: 1;
+}
+
+.card .card-action {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 1rem;
+}
+
+.basket-list {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 50rem;
+  max-width: 95%;
+  box-shadow: 0 0 11px 2px rgb(38 112 217 / 70%);
+  animation: show .5s ease-in-out;
+}
+
+.basket-close {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  cursor: pointer;
+  z-index: 2;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.remove-item {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.quantity-order {
+  font-size: 20px;
+  color: teal;
+  font-weight: 700;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.toast-container {
+  position: fixed;
+  top: 4rem;
+  right: 7rem;
+}
+
+.toast {
+  top: 0;
+  margin-top: 0;
+}
+
+@media all and (min-width: 760px) {
+  .cart {
+    top: 7rem;
+    bottom: unset;
   }
+
+  .toast-container {
+    top: 7rem;
+    bottom: unset;
+  }
+}
+
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+
   to {
-    transform: rotate(360deg);
+    top: 50%;
+    opacity: 1;
   }
 }
